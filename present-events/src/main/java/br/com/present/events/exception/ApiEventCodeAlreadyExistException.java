@@ -1,0 +1,26 @@
+package br.com.present.events.exception;
+
+import java.io.Serial;
+
+import org.springframework.http.HttpStatus;
+
+import br.com.present.commons.exception.ApiRuntimeException;
+
+public class ApiEventCodeAlreadyExistException extends ApiRuntimeException {
+
+	@Serial
+	private static final long serialVersionUID = -5577651392429167855L;
+
+	public ApiEventCodeAlreadyExistException(String message) {
+        super(message);
+    }
+	
+	public ApiEventCodeAlreadyExistException(String message, Object[] args) {
+        super(message, args);
+    }
+	
+	@Override
+	public HttpStatus getStatus() {
+		return HttpStatus.NOT_FOUND;
+	}
+}

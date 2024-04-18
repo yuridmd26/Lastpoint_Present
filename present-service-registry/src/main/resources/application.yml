@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ${MICROSERVICE_NAME}
+
+server:
+  port: ${MICROSERVICE_PORT}
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: ${EUREKA_URL}

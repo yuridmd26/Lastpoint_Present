@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /
+  port: ${MICROSERVICE_PORT}
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${ROUTE_EUREKA}
+
+spring:
+  application:
+    name: ${MICROSERVICE_NAME}
+  main:
+    web-application-type: reactive
+  devtools:
+    livereload:
+      port: ${MICROSERVICE_RELOADPORT}
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 15000
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+    - name: present-attendances
+      url: /present-attendances/api-docs
+    - name: present-auths
+      url: /present-auths/api-docs
+    - name: present-classes
+      url: /present-classes/api-docs
+    - name: present-courses
+      url: /present-courses/api-docs
+    - name: present-events
+      url: /present-events/api-docs
+    - name: present-face-id
+      url: /present-face-id/api-docs
+    - name: present-groups
+      url: /present-groups/api-docs
+    - name: present-users
+      url: /present-users/api-docs
